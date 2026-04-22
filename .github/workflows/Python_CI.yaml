@@ -24,7 +24,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Buildign the Docker Image
-        run: docker build . --file DockerFile --tag workflow-test:$(date +%s)
+        run: docker build . --file Dockerfile --tag workflow-test:$(date +%s)
 
   build-and-test:
     runs-on:  ubuntu-latest
@@ -70,7 +70,7 @@ jobs:
       uses: docker/build-push-action@v4 
       with:
         context: .
-        file: ./DockerFile
+        file: ./Dockerfile
         push: True
         tags: ${{secrets.DOCKER_USERNAME}}/flasktest-app:latest
 
