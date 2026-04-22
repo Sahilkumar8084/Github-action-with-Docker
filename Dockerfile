@@ -4,11 +4,14 @@ FROM python:3.10-slim
 
 WORKDIR  /app
 
-COPY requirements.txt . #Pahle Sirf Requirements.txt file copy karna 
+# Pahle Sirf Requirements.txt file copy karna 
 
-RUN pip install --no--cache--dir -r requirements.txt
+COPY requirements.txt . 
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . . #Baaki sara code copy karo
+# Baaki sara code copy karo
+
+COPY . .  
 
 EXPOSE 5000
 
